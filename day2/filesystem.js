@@ -14,4 +14,4 @@ import fs from 'fs';
 // fs.unlinkSync('./demo.txt')
 
 
-// fs.mkdirSync('demo.txt', { recursive: true },);
+fs.mkdirSync('demo.txt', { recursive: true });
