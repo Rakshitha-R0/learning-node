@@ -1,11 +1,7 @@
-import express from 'express';
-let app = express();
+import http from 'http';
+import app from './app.js';
+let PORT = 8080;
 
-app.get("/home", (req, res) =>{
-    res.send("Hello World");
-});
+let server = http.createServer(app);
 
-app.listen(5000, () =>{
-console.log("Server is on 5000...");
-
-});
+server.listen(PORT, () => console.log(`Server is on port ${PORT}`))
