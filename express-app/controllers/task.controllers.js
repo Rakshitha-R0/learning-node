@@ -1,42 +1,26 @@
-import Task from '../model/task.model.js';
+import { create, deleteById, findAll, findById, updateById } from '../services/task.services.js';
 
 export const createTask = async(req, res, next) => {
-    try {
-        let newTask = await Task.create({
-            task: req.body.task
-        })
-        res.status(201);
+        let newTask = await create(req);
         res.send(newTask);
-    } catch (error) {
-        res.status(400);
-        res.send("Error: " + error);
-    }
 }
 
 export const findTask = async(req, res, next) => {
-    let tasks = await Task.find();
+    let tasks = await findAll();
     res.send(tasks);
 }
 
 export const findTaskById = async(req, res, next) =>{
-    let id = req.params.id;
-    let task = await Task.findById(id);
+    let task = await findById(req);
     res.send(task);
 }
 
-export const updateTaskById = 
-async(req, res, next) =>{
-    let id = req.params.id;
-    let updatedTask = await Task.findByIdAndUpdate(
-        id,
-        {task: req.body.task},
-        {new: true}
-    )
+export const updateTaskById = async(req, res, next) =>{
+let updatedTask = await updateById(req);
     res.send(updatedTask);
 }
 
 export const deleteTask = async(req, res, next) =>{
-    let id = req.params.id;
-    await Task.findByIdAndDelete(id);
+    await deleteById(req);
     res.send("Task deleted"); 
 }
