@@ -1,6 +1,6 @@
 import { connect } from "mongoose";
 
-async function connectDB() {
+const ConnectDB = async() => {
   try {
     await connect("mongodb://127.0.0.1:27017/testDB");
     console.log("DB connected");
@@ -9,4 +9,4 @@ async function connectDB() {
   }
 }
 
-export default connectDB;
+export default ConnectDB;
