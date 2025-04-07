@@ -1,12 +1,12 @@
 import { Schema, model } from "mongoose";
 
 let taskSchema = new Schema({
-    task: {
-        type: String,
-        required: true,
-    }
-})
+  task: {
+    type: String,
+    required: true,
+  },
+});
 
-const Task = model('Task', taskSchema);
+const Task = model("Task", taskSchema);
 
 export default Task;
