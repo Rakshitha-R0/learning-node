@@ -13,7 +13,7 @@ export const createTask = async (req, res, next) => {
 
 export const findTask = async (req, res, next) => {
   let tasks = await findAll();
-  res.send(tasks);
+  res.render("home",{tasks});
 };
 
 export const findTaskById = async (req, res, next) => {

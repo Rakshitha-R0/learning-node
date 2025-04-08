@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the task manager</h1>
+    <h2>List of tasks</h2>
+    <% if (tasks.length > 0) { %>
+    <table>
+        <tr>
+            <th>SL No</th>
+            <th>Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <% tasks.forEach((task, index) => { %>
+        <tr>
+            <td><%= index +1 %></td>
+            <td><%= task.task %></td>
+            <td>update</td>
+            <td>delete</td>
+        </tr>
+        <% }) %>
+    </table>
+    <% }else { %>
+     <h2> no tasks</h2>
+     <% } %>
+</body>
+</html>
