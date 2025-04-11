@@ -1,0 +1,169 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(26, 26, 255);
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    text-align: center;
+    color: rgb(102, 255, 255); /* Cyan for headings */
+}
+
+/* Form styles */
+#update-form {
+    max-width: 400px; 
+    margin: 20px auto;
+    padding: 10px;
+    background: rgb(128, 255, 170); /* Light green background */
+    border: 1px solid rgb(102, 255, 255); /* Cyan border */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
+#update-form input[type="text"] {
+    flex: 1; 
+    padding: 10px;
+    border: 1px solid rgb(102, 255, 255); /* Cyan border */
+    border-radius: 5px;
+    min-width: 0; 
+}
+
+#update-form button, .delete {
+    padding: 10px 20px;
+    background: rgb(102, 255, 255); 
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: medium;
+    font-weight: 100;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#update-form button:hover {
+    background: peru; 
+    transform: scale(1.05);
+}
+
+
+
+.delete:hover {
+    background: red; 
+    transform: scale(1.05);
+    color: #ccc;
+}
+/* Table styles */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid rgb(153, 187, 255); 
+}
+
+table th {
+    background: rgb(102, 255, 255); 
+    color:rgb(26, 26, 255);
+}
+
+table tr:nth-child(even) {
+    background: #fff; 
+}
+
+table tr:hover {
+    background: #ccc; 
+}
+
+/* Task row animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+table tr.new-task {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Links */
+a {
+
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: #333;
+    text-decoration: none;
+}
+
+/* Container for update form */
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    #update-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #update-form input[type="text"], #update-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    table th, table td {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    #update-form {
+        flex-direction: row; 
+        gap: 15px;
+    }
+
+    #update-form input[type="text"]{
+        width: 70%;
+    }
+    
+    #update-form button {
+        width: 30%;
+    }
+}

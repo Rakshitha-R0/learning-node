@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
     <h1>Welcome to the task manager</h1>
+    <div>
+      <form id="update-form" action="/tasks" method="post">
+        <input type="text" name="task" placeholder="Enter the task" />
+        <button type="submit">Create</button>
+      </form>
+    </div>
     <h2>List of tasks</h2>
     <% if (tasks.length > 0) { %>
     <table>
-        <tr>
-            <th>SL No</th>
-            <th>Name</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
-        <% tasks.forEach((task, index) => { %>
-        <tr>
-            <td><%= index +1 %></td>
-            <td><%= task.task %></td>
-            <td>update</td>
-            <td>delete</td>
-        </tr>
-        <% }) %>
+      <tr>
+        <th>SL No</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <% tasks.forEach((task, index) => { %>
+      <tr class="<%= task.isNew ? 'new-task' : '' %>">
+        <td><%= index + 1 %></td>
+        <td><%= task.task %></td>
+        <td><a href="/tasks/<%= task._id %>">Update</a></td>
+        <td>
+          <form action="/tasks/<%= task._id%>?_method=DELETE" method="post">
+            <button class="delete" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
     </table>
     <% }else { %>
-     <h2> no tasks</h2>
-     <% } %>
-</body>
+    <h2>no tasks</h2>
+    <% } %>
+  </body>
 </html>
