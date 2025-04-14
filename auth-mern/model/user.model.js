@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import validator from "validator";
-import bycrypt from "bcryptjs";
+import bycrypt from "bcrypt";
 
 let userSchema = new Schema({
     name:{
