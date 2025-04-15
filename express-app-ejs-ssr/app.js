@@ -3,7 +3,11 @@ import ConnectDB from "./config/db.js";
 import routes from "./routes/task.routes.js";
 import methodOverride from "method-override";
 const app = express();
+
+
+//database
 ConnectDB();
+
 
 app.set("views", "./views");
 app.set('view engine', 'ejs');
