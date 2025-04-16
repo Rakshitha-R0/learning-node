@@ -1,14 +1,16 @@
 import { registerUser, loginUser } from "../services/auth.services.js";
+import generateToken from "../utils/generateToken.js";
 
 export const register = async (req, res, next) => {
   const newUser = await registerUser(req);
   if (!newUser) {
     return res.status(401).json({ message: "User not created" });
   }
+
+  let token = await generateToken(newUser._id);
+
   res.status(200).json({
-    userName: newUser.name,
-    email: newUser.email,
-    role: newUser.role,
+    userName: newUser,token
   });
 };
 export const login = async (req, res, next) => {
@@ -20,6 +22,6 @@ export const login = async (req, res, next) => {
   ) {
     return res.status(401).json({ message: "User not found" });
   }
-
-  res.status(200).json(existingUser);
+  let token = await generateToken(existingUser._id)
+  res.status(200).json({existingUser, token});
 };
