@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 
 let userSchema = new Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, "username is required field"],
       trim: true,
