@@ -5,6 +5,7 @@ import { rateLimit } from 'express-rate-limit'
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.routes.js';
 import userRoutes from './routes/user.routes.js';
+import cors from 'cors';
 connectDB();
 
 const app = express();
@@ -23,6 +24,7 @@ const limiter = rateLimit({
 // Apply the rate limiting middleware to all requests.
 app.use(limiter)
 
+app.use(cors())
 app.use("/api/v1/auth",authRoutes);
 app.use('/api/v1/users', userRoutes);
 
